@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brother Toys</title>
+<meta name="description" content="Brother Toys oyuncakları. Ürünlerimizi Trendyol, Hepsiburada ve n11 mağazalarımızdan satın alabilirsiniz.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='10' width='20' height='13' rx='3' fill='%23e46aa8'/%3E%3Crect x='14' y='4' width='9' height='9' rx='2' fill='%23e46aa8'/%3E%3Ccircle cx='9' cy='25' r='4' fill='%237a1a5e'/%3E%3Ccircle cx='19' cy='25' r='4' fill='%237a1a5e'/%3E%3Crect x='24' y='14' width='6' height='9' rx='2' fill='%2314a7c0'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: playful toy brand, confident, a little bit of show
+   IDEA: the toy train from the logo pulls into the station; each wagon is one of our stores
+   PICTURE: a night-plum scene with hills, a track and the train rolling in, wheels turning, smoke puffing
+   COLOUR and TYPE: logo plum ground, pink engine, teal and lime wagons; Baloo 2 + Nunito
+   LAYOUT: header, hero text over the train scene, wagon-shaped store cards, teal contact band, footer */
+:root{color-scheme:light dark;
+  --bg:light-dark(#fff6fa,#170818);--ink:light-dark(#2a0c27,#fdeaf4);--muted:light-dark(#7a5670,#cfa9c3);
+  --card:light-dark(#ffffff,#24102a);--line:light-dark(#f3d6e5,#3c1d3f);
+  --plum:#2b0b2c;--plum2:#3d1440;--pink:#e46aa8;--teal:#14a7c0;--lime:#9cc63b;--deep:#7a1a5e}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Nunito",system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+h1,h2{font-family:"Baloo 2",system-ui,sans-serif;line-height:1.05;text-wrap:balance;margin:0}
+.band{padding:clamp(36px,5vw,72px) max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+
+/* Hero */
+.hero{background:radial-gradient(120% 80% at 70% 0%,var(--plum2),var(--plum) 60%);color:#fff;position:relative;overflow:hidden}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px max(5vw,16px);max-width:1240px;margin:0 auto;position:relative;z-index:2}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand svg{width:54px;height:40px}
+.word{font-family:"Baloo 2",sans-serif;font-weight:800;line-height:.9;font-size:20px;letter-spacing:.5px}
+.word b{color:var(--teal);display:block}.word i{font-style:normal;color:var(--pink)}
+.top nav{display:flex;gap:22px;font-weight:800}
+.top nav a{text-decoration:none;padding:10px 0;opacity:.9}
+.top nav a:hover{opacity:1;color:var(--pink)}
+.intro{position:relative;z-index:2;padding:clamp(16px,3vw,40px) max(5vw,16px) 0;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px;align-items:end}
+.intro h1{font-size:clamp(46px,7vw,84px);font-weight:800;letter-spacing:-1px}
+.intro h1 span{display:block}
+.intro h1 .t{color:var(--teal)}.intro h1 .p{color:var(--pink)}
+.intro p{font-size:18px;color:#f1d7e8;margin:0 0 6px;max-width:30em}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:12px 24px;border-radius:999px;font-weight:800;font-size:16px;text-decoration:none;
+  background:#fff;color:var(--plum);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.3)}
+.btn.main{background:var(--pink);color:#fff}
+.btn:focus-visible,.car:focus-visible,.store:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+
+.scene{position:relative;height:clamp(230px,30vw,340px);margin-top:12px}
+.scene svg{position:absolute;inset:0;width:100%;height:100%}
+.train{animation:arrive 2.6s cubic-bezier(.2,.7,.25,1) both}
+@keyframes arrive{from{transform:translateX(-1150px)}to{transform:none}}
+.wheel{transform-box:view-box;transform-origin:0 0;animation:spin 2.6s cubic-bezier(.2,.7,.25,1) both}
+@keyframes spin{from{transform:rotate(-1440deg)}to{transform:none}}
+.puff{transform-box:fill-box;transform-origin:center;animation:puff 2.4s ease-out infinite;opacity:0}
+.puff:nth-of-type(2){animation-delay:.8s}.puff:nth-of-type(3){animation-delay:1.6s}
+@keyframes puff{0%{opacity:.85;transform:translate(0,0) scale(.5)}100%{opacity:0;transform:translate(-40px,-70px) scale(1.6)}}
+.car{cursor:pointer}
+.car .body{transition:transform .2s}
+.car:hover .body{transform:translateY(-6px)}
+.lbl{font:800 22px "Baloo 2",sans-serif;fill:#fff;text-anchor:middle;pointer-events:none}
+.tw{opacity:.55;animation:tw 3s ease-in-out infinite}
+@keyframes tw{50%{opacity:.15}}
+
+/* Stores */
+.stores h2,.contact h2{font-size:clamp(32px,4.4vw,48px)}
+.lead{color:var(--muted);margin:10px 0 30px;max-width:42em;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:34px 20px;padding-top:15px}
+.store{position:relative;display:flex;flex-direction:column;gap:4px;background:var(--card);border:3px solid var(--c);border-radius:18px;
+  padding:26px 24px 26px;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.store:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(122,26,94,.18)}
+.store::before,.store::after{content:"";position:absolute;top:-15px;width:46px;height:15px;border-radius:9px 9px 0 0;background:var(--c);
+  box-shadow:inset 0 4px 0 rgba(255,255,255,.35)}
+.store::before{left:28px}.store::after{left:88px}
+.store .name{font-family:"Baloo 2",sans-serif;font-size:30px;font-weight:800;line-height:1.1;color:var(--c)}
+.store .hint{color:var(--muted)}
+.store .go{margin-top:12px;font-weight:800}
+.note{font-size:13px;color:var(--muted);margin-top:26px}
+
+/* Contact */
+.contact{background:var(--teal);color:#fff;position:relative}
+.contact .lead{color:#e3fbff}
+.mail{display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px 14px;background:#fff;color:#0d5d6b;border-radius:18px;padding:18px 24px;text-decoration:none;font-weight:800;font-size:clamp(17px,2.4vw,24px);overflow-wrap:anywhere}
+.mail small{font-size:14px;color:#4b8e99;font-weight:700}
+
+footer{background:var(--plum);color:#d9b9cf;padding:26px max(5vw,16px);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+
+@media (prefers-reduced-motion:reduce){.train,.wheel,.puff,.tw{animation:none}.puff{opacity:.5}}
+@media(max-width:700px){
+  .intro{grid-template-columns:1fr}
+  .top nav{display:none}
+  .lbl{display:none}
+  .btn{flex:1 1 100%}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="top">
+    <a class="brand" href="#" aria-label="Brother Toys ana sayfa">
+      <svg viewBox="0 0 54 40" aria-hidden="true">
+        <rect x="2" y="14" width="22" height="14" rx="3" fill="#e46aa8"/><rect x="13" y="5" width="11" height="11" rx="2" fill="#e46aa8"/>
+        <rect x="5" y="7" width="5" height="8" rx="1.5" fill="#e46aa8"/><rect x="15" y="7" width="7" height="5" rx="1" fill="#fff" opacity=".8"/>
+        <rect x="27" y="17" width="11" height="11" rx="2" fill="#14a7c0"/><rect x="40" y="17" width="11" height="11" rx="2" fill="#9cc63b"/>
+        <g fill="#7a1a5e"><circle cx="8" cy="31" r="4"/><circle cx="19" cy="31" r="4"/><circle cx="32.5" cy="31" r="3"/><circle cx="45.5" cy="31" r="3"/></g>
+      </svg>
+      <span class="word"><b>BROTHER</b><i>TOYS</i></span>
+    </a>
+    <nav><a href="#magazalar">Mağazalarımız</a><a href="#iletisim">İletişim</a></nav>
+  </div>
+
+  <div class="intro">
+    <div>
+      <h1><span class="t">Brother</span><span class="p">Toys</span></h1>
+    </div>
+    <div>
+      <p>Oyuncaklarımız yola çıktı! Ürünlerimizi güvenle alışveriş yaptığınız mağazalarda bulabilirsiniz.</p>
+      <div class="btns" id="heroBtns"></div>
+    </div>
+  </div>
+
+  <div class="scene">
+    <svg id="sceneSvg" viewBox="0 0 1200 340" preserveAspectRatio="xMidYMax slice" aria-label="Mağazalarımızı taşıyan oyuncak tren">
+      <defs>
+        <g id="wheelA"><circle r="22" fill="#7a1a5e"/><circle r="13" fill="#b2508f"/><rect x="-2.5" y="-20" width="5" height="40" rx="2" fill="#7a1a5e"/><rect x="-20" y="-2.5" width="40" height="5" rx="2" fill="#7a1a5e"/><circle r="5" fill="#fbd3e8"/></g>
+        <g id="wheelB"><circle r="17" fill="#7a1a5e"/><circle r="9" fill="#b2508f"/><rect x="-2" y="-15" width="4" height="30" rx="2" fill="#7a1a5e"/><circle r="4" fill="#fbd3e8"/></g>
+      </defs>
+      <g id="stars"></g>
+      <path d="M0 250 C150 170 260 190 380 220 S620 150 760 200 S1000 160 1200 210 V340 H0Z" fill="#3d1440"/>
+      <path d="M0 280 C180 230 340 250 520 270 S860 230 1200 262 V340 H0Z" fill="#4c1a50"/>
+      <rect y="300" width="1200" height="40" fill="#5a2160"/>
+      <g id="sleepers" fill="#7a3a6e"></g>
+      <rect y="296" width="1200" height="6" rx="3" fill="#c793b8"/>
+
+      <g class="train">
+        <g id="cars"></g>
+        <!-- Lokomotif -->
+        <g transform="translate(840 0)">
+          <circle class="puff" cx="60" cy="110" r="16" fill="#fbe3f0"/>
+          <circle class="puff" cx="60" cy="110" r="16" fill="#fbe3f0"/>
+          <circle class="puff" cx="60" cy="110" r="16" fill="#fbe3f0"/>
+          <rect x="44" y="110" width="34" height="70" rx="6" fill="#e46aa8"/>
+          <rect x="38" y="104" width="46" height="14" rx="5" fill="#c94f8f"/>
+          <rect x="10" y="170" width="250" height="100" rx="18" fill="#e46aa8"/>
+          <rect x="10" y="246" width="250" height="24" rx="10" fill="#c94f8f"/>
+          <rect x="150" y="110" width="110" height="80" rx="12" fill="#e46aa8"/>
+          <rect x="140" y="98" width="130" height="20" rx="8" fill="#7a1a5e"/>
+          <rect x="168" y="128" width="74" height="46" rx="8" fill="#fde7f2"/>
+          <rect x="22" y="180" width="110" height="8" rx="4" fill="#fff" opacity=".35"/>
+          <circle cx="262" cy="222" r="10" fill="#ffe27a"/>
+          <g transform="translate(62 274)"><use class="wheel" href="#wheelA"/></g>
+          <g transform="translate(134 274)"><use class="wheel" href="#wheelA"/></g>
+          <g transform="translate(206 274)"><use class="wheel" href="#wheelA"/></g>
+        </g>
+      </g>
+    </svg>
+  </div>
+</header>
+
+<section class="band stores" id="magazalar">
+  <div class="wrap">
+    <h2>Mağazalarımız</h2>
+    <p class="lead">Tüm ürünlerimiz aşağıdaki mağazalarda satışta. Ödemeniz, kargonuz ve iadeniz bu platformların güvencesindedir.</p>
+    <div class="grid" id="storeGrid"></div>
+  </div>
+</section>
+
+<section class="band contact" id="iletisim">
+  <div class="wrap">
+    <h2>Bize ulaşın</h2>
+    <p class="lead">Ürünler, toptan satış veya iş birlikleri için e-posta gönderebilirsiniz.</p>
+    <a class="mail" id="mail" href="#"><small>E-posta</small><span id="mailText"></span></a>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>© <span id="yr"></span> Brother Toys</span><span>brothertoys.com.tr</span></div></footer>
+
+<script>
+{
+  // ---- BURAYI DÜZENLEYİN: mağaza linkleri ve e-posta ----
+  const STORES = [
+    { name: "Trendyol",    url: "https://www.trendyol.com/magaza/brothertoys-m-190370?sst=0", hint: "Hızlı teslimat, kolay iade",            color: "#14a7c0" },
+    { name: "Hepsiburada", url: "https://www.hepsiburada.com/magaza/brothertoyz", hint: "Tüm ürünlerimiz burada da",              color: "#86b02c" },
+    { name: "n11",         url: "https://www.n11.com/magaza/brothertoys", hint: "Ürünlerimizi n11'de de bulabilirsiniz", color: "#c94f8f" }
+  ];
+  const EMAIL = "brothertoys4141@gmail.com";
+  // -------------------------------------------------------
+
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const suffix = n => /[eiöü][^aeıioöuü]*$/i.test(n) || /11$/.test(n) ? "'de" : "'da";
+
+  document.getElementById("storeGrid").innerHTML = STORES.map(s => `
+    <a class="store" style="--c:${esc(s.color)}" href="${esc(s.url)}" target="_blank" rel="noopener">
+      <span class="name">${esc(s.name)}</span>
+      <span class="hint">${esc(s.hint)}</span>
+      <span class="go">Mağazaya git →</span>
+    </a>`).join("");
+
+  document.getElementById("heroBtns").innerHTML = STORES.slice(0, 2).map((s, i) =>
+    `<a class="btn${i === 0 ? " main" : ""}" href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}${suffix(s.name)} satın al</a>`).join("");
+
+  document.getElementById("mailText").textContent = EMAIL;
+  document.getElementById("mail").href = "mailto:" + EMAIL;
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  // Vagonlar: her biri bir mağaza (sondan lokomotife doğru)
+  const W = 230, GAP = 30;
+  const order = STORES.slice().reverse();
+  document.getElementById("cars").innerHTML = order.map((s, i) => {
+    const x = 840 - (order.length - i) * (W + GAP);
+    return `<a class="car" href="${esc(s.url)}" target="_blank" rel="noopener" aria-label="${esc(s.name)} mağazası">
+      <rect x="${x + W}" y="244" width="${GAP + 12}" height="10" rx="4" fill="#7a1a5e"/>
+      <g class="body">
+        <rect x="${x}" y="168" width="${W}" height="96" rx="16" fill="${esc(s.color)}"/>
+        <rect x="${x}" y="240" width="${W}" height="24" rx="10" fill="#000" opacity=".15"/>
+        <rect x="${x + 14}" y="178" width="${W - 28}" height="7" rx="3.5" fill="#fff" opacity=".35"/>
+        <text class="lbl" x="${x + W / 2}" y="226">${esc(s.name)}</text>
+      </g>
+      <g transform="translate(${x + 50} 278)"><use class="wheel" href="#wheelB"/></g>
+      <g transform="translate(${x + W - 50} 278)"><use class="wheel" href="#wheelB"/></g>
+    </a>`;
+  }).join("");
+
+  // Dar ekranda lokomotif görünsün diye sahneyi sağa hizala
+  const sceneSvg = document.getElementById("sceneSvg");
+  const mq = window.matchMedia("(max-width: 700px)");
+  const align = () => sceneSvg.setAttribute("preserveAspectRatio", mq.matches ? "xMaxYMax slice" : "xMidYMax slice");
+  align();
+  mq.addEventListener("change", align);
+
+  document.getElementById("sleepers").innerHTML =
+    Array.from({ length: 40 }, (_, i) => `<rect x="${i * 30 + 6}" y="300" width="16" height="12" rx="2"/>`).join("");
+  document.getElementById("stars").innerHTML =
+    Array.from({ length: 34 }, (_, i) => {
+      const x = (i * 137) % 1200, y = 20 + ((i * 71) % 150), r = 1 + (i % 3) * .8;
+      return `<circle class="tw" cx="${x}" cy="${y}" r="${r}" fill="#fff" style="animation-delay:${(i % 7) * .4}s"/>`;
+    }).join("");
+}
+</script>
+</body>
+</html>
