@@ -47,6 +47,8 @@ h1,h2{font-family:"Baloo 2",system-ui,sans-serif;line-height:1.05;text-wrap:bala
   background:#fff;color:var(--plum);transition:transform .15s,box-shadow .15s}
 .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.3)}
 .btn.main{background:var(--pink);color:#fff}
+.btn.ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.75)}
+.btn.ghost:hover{background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 2px #fff}
 .btn:focus-visible,.car:focus-visible,.store:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
 
 .scene{position:relative;height:clamp(230px,30vw,340px);margin-top:12px}
@@ -185,8 +187,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
   // ---- BURAYI DÜZENLEYİN: mağaza linkleri ve e-posta ----
   const STORES = [
     { name: "Trendyol",    url: "https://www.trendyol.com/magaza/brothertoys-m-190370?sst=0", hint: "Hızlı teslimat, kolay iade",            color: "#14a7c0" },
-    { name: "Hepsiburada", url: "https://www.hepsiburada.com/magaza/brothertoyz", hint: "Tüm ürünlerimiz burada da",              color: "#86b02c" },
-    { name: "n11",         url: "https://www.n11.com/magaza/brothertoys", hint: "Ürünlerimizi n11'de de bulabilirsiniz", color: "#c94f8f" }
+    { name: "Hepsiburada", url: "https://www.hepsiburada.com/magaza/brothertoyz", hint: "Tüm setlerimiz Hepsiburada güvencesiyle bir tık uzağınızda",color: "#86b02c" },
+    { name: "n11",         url: "https://www.n11.com/magaza/brothertoys", hint: "Favori setleriniz n11 mağazamızda sizi bekliyor",color: "#c94f8f" }
   ];
   const EMAIL = "brothertoys4141@gmail.com";
   // -------------------------------------------------------
@@ -201,8 +203,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
       <span class="go">Mağazaya git →</span>
     </a>`).join("");
 
-  document.getElementById("heroBtns").innerHTML = STORES.slice(0, 2).map((s, i) =>
-    `<a class="btn${i === 0 ? " main" : ""}" href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}${suffix(s.name)} satın al</a>`).join("");
+  document.getElementById("heroBtns").innerHTML = STORES.map((s, i) =>
+    `<a class="btn${i === 0 ? " main" : i === 2 ? " ghost" : ""}" href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}${suffix(s.name)} satın al</a>`).join("");
 
   document.getElementById("mailText").textContent = EMAIL;
   document.getElementById("mail").href = "mailto:" + EMAIL;
