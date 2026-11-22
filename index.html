@@ -60,6 +60,8 @@ h1,h2{font-family:"Baloo 2",system-ui,sans-serif;line-height:1.05;text-wrap:bala
 .puff{transform-box:fill-box;transform-origin:center;animation:puff 2.4s ease-out infinite;opacity:0}
 .puff:nth-of-type(2){animation-delay:.8s}.puff:nth-of-type(3){animation-delay:1.6s}
 @keyframes puff{0%{opacity:.85;transform:translate(0,0) scale(.5)}100%{opacity:0;transform:translate(-40px,-70px) scale(1.6)}}
+.paw{transform-box:fill-box;transform-origin:50% 100%;animation:wave 1.2s ease-in-out 2.6s infinite}
+@keyframes wave{0%,100%{transform:rotate(-12deg)}50%{transform:rotate(18deg)}}
 .car{cursor:pointer}
 .car .body{transition:transform .2s}
 .car:hover .body{transform:translateY(-6px)}
@@ -91,7 +93,7 @@ h1,h2{font-family:"Baloo 2",system-ui,sans-serif;line-height:1.05;text-wrap:bala
 footer{background:var(--plum);color:#d9b9cf;padding:26px max(5vw,16px);font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
 
-@media (prefers-reduced-motion:reduce){.train,.wheel,.puff,.tw{animation:none}.puff{opacity:.5}}
+@media (prefers-reduced-motion:reduce){.train,.wheel,.puff,.tw,.paw{animation:none}.puff{opacity:.5}}
 @media(max-width:700px){
   .intro{grid-template-columns:1fr}
   .top nav{display:none}
@@ -153,6 +155,22 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
           <rect x="150" y="110" width="110" height="80" rx="12" fill="#e46aa8"/>
           <rect x="140" y="98" width="130" height="20" rx="8" fill="#7a1a5e"/>
           <rect x="168" y="128" width="74" height="46" rx="8" fill="#fde7f2"/>
+          <!-- Makinist yavru köpek (Brother Toys maskotu) -->
+          <g class="pup">
+            <ellipse cx="190" cy="150" rx="7" ry="13" fill="#9b6a43" transform="rotate(18 190 150)"/>
+            <ellipse cx="220" cy="150" rx="7" ry="13" fill="#9b6a43" transform="rotate(-18 220 150)"/>
+            <circle cx="205" cy="152" r="17" fill="#e0aa6e"/>
+            <ellipse cx="205" cy="160" rx="10" ry="7.5" fill="#fff3e2"/>
+            <ellipse cx="205" cy="156" rx="4" ry="3" fill="#3a2418"/>
+            <path d="M201 162 q4 4 8 0" stroke="#3a2418" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+            <circle cx="198" cy="148" r="2.4" fill="#3a2418"/><circle cx="212" cy="148" r="2.4" fill="#3a2418"/>
+            <circle cx="198.8" cy="147.2" r=".8" fill="#fff"/><circle cx="212.8" cy="147.2" r=".8" fill="#fff"/>
+            <circle cx="193" cy="155" r="2.6" fill="#f29cc4" opacity=".7"/><circle cx="217" cy="155" r="2.6" fill="#f29cc4" opacity=".7"/>
+            <path d="M188 140 q17 -16 34 0 z" fill="#7a1a5e"/>
+            <rect x="187" y="137" width="36" height="5" rx="2.5" fill="#14a7c0"/>
+            <rect x="214" y="138" width="14" height="4" rx="2" fill="#7a1a5e"/>
+            <g class="paw"><rect x="227" y="150" width="9" height="20" rx="4.5" fill="#e0aa6e"/><circle cx="231.5" cy="150" r="6" fill="#e0aa6e"/></g>
+          </g>
           <rect x="22" y="180" width="110" height="8" rx="4" fill="#fff" opacity=".35"/>
           <circle cx="262" cy="222" r="10" fill="#ffe27a"/>
           <g transform="translate(62 274)"><use class="wheel" href="#wheelA"/></g>
